@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vendors/jquery-3.6.0.min.js"></script>
+    <script src="./scripts/client.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+
+    <title>Week 8 weekend Challenge -jquery-server-calculator</title>
+
+</head>
+
+<h1>Week 8 Weekend Challenge</h1>
+<h2>jQuery Server Calculator</h2>
+
+<body>
+
+    <main>
+
+        <div id="mathButtons">
+            <!-- input 1-->
+            <input type="number" placeholder="First Number" id="firstNumber">
+            
+            <span>
+                <button id="plusButton" class="plusButton">+</button>
+                <button id="minusButton" class="minusButton">-</button>
+                <button id="divideButton" class="divideButton">/</button>
+                <button id="multiplyButton" class="">*</button>
+             <!-- input 2-->   
+            <input type="number" placeholder="Second Number" id="secondNumber">
+                
+                <button id="submitButton" class="submitButton">=</button>
+            </span>
+            <!-- Submit Button -->
+            <button id="clearButton" class="clearButton">Clear (C)</button>
+
+        </div>
+        <h3>Current Operator:   
+            <span id="currentOperator">
+            <span>
+
+        </h3>
+        <ul id="mathHistoryList">
+            <!-- list item will go here -->
+        </ul>
+
+
+        <br><br><br>
+        <p style="font-style: italic">Ignore below calculator buttons for now</p>
+
+        <div id="calculator">
+            <!-- ignore calculator button for now -->
+            <table id="buttonTable">
+                <tr>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button id="1">1</button>
+                    </td>
+                    <td>
+                        <button id="2">2</button>
+                    </td>
+
+                    <td>
+                        <button id="3">3</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="4">4</button>
+                    </td>
+                    <td>
+                        <button id="5">5</button>
+                    </td>
+                    <td>
+                        <button id="6">6</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="7">7</button>
+                    </td>
+                    <td>
+                        <button id="8">8</button>
+                    </td>
+                    <td>
+                        <button id="9">9</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="0">0</button>
+                    </td>
+                </tr>
+
+            </table>
+        </div> <!-- End Calculator Div-->
+
+    </main>
+
+</body>
+
+</html>
