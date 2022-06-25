@@ -58,3 +58,37 @@ Keep a historical record of all math operations and solutions on the server. Dis
 
   *Anticipating a user's wants and adding the feature in the interface is often a logical progression that ends up in stretch goals for project.*
 
+
+TO DO LIST
+  create .gitignore - DONE
+  write ReadMe.md - 
+  code all calculator logic in clients first - IN PROGRESS
+  
+  Run blank test in new file
+
+  code/ connect all client and server code, by ADDING and TESTING as you go
+
+
+
+Calculator Function Map
+
+on OPERATOR click 
+  change operator variable
+  run FUNCTION to append OPERATOR to DOM -STOP
+
+on OPERATOR click - 
+  change VARIABLES
+  Append OPERATOR to DOM
+
+on SUBMIT click
+  check if logic
+    if no OPERATOR - STOP
+
+    if OPERATOR is '+'
+      change run Math EQUATION FUNCTION 
+        INPUT 1 + OPERATOR + INPUT 2 = MATH
+          run FUNCTION to  append EQUATION to DOM -STOP
+
+
+on Clear CLICK - 
+  Clear inputs - STOP

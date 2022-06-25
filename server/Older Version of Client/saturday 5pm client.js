@@ -1,18 +1,16 @@
 $(document).ready(onReady);
 
 function onReady(){
-
-// ACTION 1. listeners
+    // ACTION 1. listeners
     console.log( 'js' );
     // $('#submitButton').on('click', submitMath ); // listener works
             // $('#submitButton').on('click', inputValues ); // may delete 
     $('#submitButton').on('click', ifFunction ); // listener works
 
-    $('#plusButton').on('click', plusOperator ); // listener works
+    $('#plusButton').on('click', plusPush ); // listener works
     $('#minusButton').on('click', minusPush );
     $('#divideButton').on('click', dividePush );
     $('#multiplyButton').on('click', multiplyPush );
-
     $('#clearButton').on('click', clearButton );
 }
 
@@ -46,34 +44,32 @@ function ifFunction (){
         alert( `You didn't select an operator silly!` );
     }
     else if ( operator === '+'){
-        console.log( 'plus if loop');
-        inputValues();
-        plusMath();
-        appendToDOM();
     // math = input1 + input2;
     // console.log('math is:', input1, operator, input2, '=', math );
-   
+    plusPush();
     } 
-    // else if (operator === '-'){
-    //     math = input1 - input2;
-    //     console.log('math is:', input1, operator, input2, '=', math );
-    // } 
-    // else if (operator === '/'){
-    //     math = input1 / input2;
-    //     console.log('math is:', input1, operator, input2, '=', math );
-    // } 
-    // else if (operator === '*'){
-    //     math = input1 * input2;
-    //     console.log('math is:', input1, operator, input2, '=', math );
-    // } 
+    else if (operator === '-'){
+        math = input1 - input2;
+        console.log('math is:', input1, operator, input2, '=', math );
+    } 
+    else if (operator === '/'){
+        math = input1 / input2;
+        console.log('math is:', input1, operator, input2, '=', math );
+    } 
+    else if (operator === '*'){
+        math = input1 * input2;
+        console.log('math is:', input1, operator, input2, '=', math );
+    } 
 };  // END of IfFunction
 
 
 function inputValues (){
-    console.log( 'input function start' ); //test click listener
-        input1 = Number($('#firstNumber').val()); // takes input 1 value, converts itt to #
-        input2 = Number($('#secondNumber').val());// takes input 2 value, converts itt to #
-    console.log('input 1:',  input1, 'input 2:', input2, );
+    // console.log( 'button click' ); //test click listener
+            // turn off auto clear input function. Instructions say to do this in a button
+            // input1 = Number($('#firstNumber').val()); // takes input 1 value, converts itt to #
+        // input2 = Number($('#secondNumber').val());// takes input 2 value, converts itt to #
+    // ifFunction();
+    // console.log('inputs after function', (input1 + input2) );
 }; // END of InputValues
 
 
@@ -86,31 +82,24 @@ function inputValues (){
 
 
 // - GLOBAL FUNCTION
-function plusOperator (){ 
-    console.log( 'push operator works' );// function for PLUS math
-    operator =''; // clear operator variable value
-    operator = plus; // change operator variable value to plus variable value
-    console.log( 'operator is now', operator ); // test operator function
+function plusPush (){ 
+    console.log( 'push funtion works' );// function for PLUS math
     $('#currentOperator').empty();
-    $('#currentOperator').append(`${operator}`);
-    
+    $('#currentOperator').append(` +`);
+    console.log( 'operator is now', operator );
+    math = input1 + input2;
+    console.log('math is:', input1, operator, input2, '=', math );
+    operator ='';
+    operator = plus;
+    math = input1 + input2;
 }; // End of plusPush
-
-
-function plusMath(){
-
-console.log('math is:', input1, operator, input2, '=', math );
-math = input1 + input2;
-};
-
 
 // - GLOBAL FUNCTION
 function minusPush (){ // function for MINUS math
     operator ='';
     operator = minus;
     $('#currentOperator').empty();
-    $('#currentOperator').append(`${operator}`);
-
+    $('#currentOperator').append(` -`);
     console.log( 'operator is now', operator );
     math = input1 - input2 
 }; // End of minusPush
@@ -147,16 +136,8 @@ $('#secondNumber').val('');
 
 // ACTION - Appends the math to the ul on the DOM - END OF ACTIONS
 function appendToDOM (){
-    console.log( 'appendToDOM START '); 
-    mathObject = {
-        input1: input1,
-        operator: operator,
-        input2: input2,
-    };
-    console.log( 'mathObject is', 
-    mathObject.input1, mathObject.operator, mathObject.input2 ); //tests mathObject
-
     console.log('the answer is', math ); // works 
+    // console.log( mathObject );
     $('#mathHistoryList').append(
         `<li>
         ${mathObject.input1}
