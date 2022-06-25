@@ -77,19 +77,17 @@ function inputValues (){
     )
 
     // clears out all of the input fields 
-    $('#firstNumber').val('');
-    $('#secondNumber').val('');
 };
 
 
 function plusPush (){ // function for PLUS math
-operator ='';
-operator = plus;
-$('#currentOperator').empty();
-$('#currentOperator').append(` +`);
-console.log( 'operator is now', operator );
-math = input1 + input2;
-}
+    operator ='';
+    operator = plus;
+    $('#currentOperator').empty();
+    $('#currentOperator').append(` +`);
+    console.log( 'operator is now', operator );
+    math = input1 + input2;
+};
 
 function minusPush (){ // function for MINUS math
     operator ='';
@@ -98,7 +96,7 @@ function minusPush (){ // function for MINUS math
     $('#currentOperator').append(` -`);
     console.log( 'operator is now', operator );
     math = input1 - input2 
-}
+};
 
 function dividePush (){ // function for DIVIDE math
     operator ='';
@@ -107,7 +105,7 @@ function dividePush (){ // function for DIVIDE math
     $('#currentOperator').append(` /`);
     console.log( 'operator is now', operator );
     math = input1 / input2;
-}
+};
 
 function multiplyPush (){ // function for multiply math
     operator ='';
@@ -116,8 +114,13 @@ function multiplyPush (){ // function for multiply math
     $('#currentOperator').append(` *`);
     console.log( 'operator is now', operator );
     math = input1 * input2;
-}
+};
 
-        
-    
+
+
+function clearButton (){
+console.log( 'clear button');
+$('#firstNumber').val('');
+$('#secondNumber').val('');
+};
   
