@@ -201,3 +201,15 @@ function clearHistoryButton (){  // Clears the INPUT fields -  works
     mathHistoryArray = [];
     }; // End of ClearButton
       
+
+
+
+
+
+
+
+
+
+
+
+    // ------ TESTING CLIENT TO SERVER THINGS BELOW ------
