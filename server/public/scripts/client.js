@@ -88,38 +88,7 @@ if ( operator === '+'){
 
 
 
-// ---- CHANGE OPERATOR FUNCTIONS BELOW ----
-function plusOperator (){ 
-    operator =''; // clear operator variable value
-    operator = '+'; // change operator variable value to plus variable value
-    console.log( 'operator is now', operator ); // test operator function
-    $('#currentOperator').empty();
-    $('#currentOperator').append(`${operator}`);
-}; // End of plusOperator
 
-function minusOperator (){ // function for MINUS math
-    operator ='';
-    operator = '-';
-    $('#currentOperator').empty();
-    $('#currentOperator').append(`${operator}`);
-    console.log( 'operator is now', operator );
-}; // End of minusOperator
-
-function divideOperator (){ // function for DIVIDE math
-    operator ='';
-    operator = '/';
-    $('#currentOperator').empty();
-    $('#currentOperator').append(` /`);
-    console.log( 'operator is now', operator );
-}; // End of divideOperator
-
-function multiplyOperator (){ // function for multiply math
-    operator ='';
-    operator = '*';
-    $('#currentOperator').empty();
-    $('#currentOperator').append(` *`);
-    console.log( 'operator is now', operator );
-}; // End of multiplyOperator
 
 
 
@@ -183,7 +152,41 @@ function appendToDOM (){
 };
     
     
-    
+// ---- ADJACENT ACTIONS - CHANGE OPERATOR FUNCTIONS BELOW ----
+function plusOperator (){ 
+    operator =''; // clear operator variable value
+    operator = '+'; // change operator variable value to plus variable value
+    console.log( 'operator is now', operator ); // test operator function
+    $('#currentOperator').empty();
+    $('#currentOperator').append(`${operator}`);
+}; // End of plusOperator
+
+function minusOperator (){ // function for MINUS math
+    operator ='';
+    operator = '-';
+    $('#currentOperator').empty();
+    $('#currentOperator').append(`${operator}`);
+    console.log( 'operator is now', operator );
+}; // End of minusOperator
+
+function divideOperator (){ // function for DIVIDE math
+    operator ='';
+    operator = '/';
+    $('#currentOperator').empty();
+    $('#currentOperator').append(` /`);
+    console.log( 'operator is now', operator );
+}; // End of divideOperator
+
+function multiplyOperator (){ // function for multiply math
+    operator ='';
+    operator = '*';
+    $('#currentOperator').empty();
+    $('#currentOperator').append(` *`);
+    console.log( 'operator is now', operator );
+}; // End of multiplyOperator
+
+
+
 function clearInputsButton (){  // Clears the INPUT fields -  works
     console.log( 'Clear Inputs button');
     $('#firstNumber').val('');
@@ -191,7 +194,7 @@ function clearInputsButton (){  // Clears the INPUT fields -  works
     }; // End of ClearButton
 
 
-    function clearHistoryButton (){  // Clears the INPUT fields -  works
+function clearHistoryButton (){  // Clears the INPUT fields -  works
     console.log( 'Clear History Button ');
     mathHistoryArray = [];
     }; // End of ClearButton
