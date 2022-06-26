@@ -23,23 +23,23 @@
         <div id="mathButtons">
             <!-- input 1-->
             <input type="number" placeholder="First Number" id="firstNumber">
-            
-            <span>
-                <button id="plusButton" class="plusButton">+</button>
-                <button id="minusButton" class="minusButton">-</button>
-                <button id="divideButton" class="divideButton">/</button>
-                <button id="multiplyButton" class="">*</button>
-             <!-- input 2-->   
-            <input type="number" placeholder="Second Number" id="secondNumber">
-                
-                <button id="submitButton" class="submitButton">= (Submit)</button>
-            </span>
-            <!-- Submit Button -->
-            <button id="clearButton" class="clearButton">C (Clear)</button>
-            <button id="clearHistoryButton" class="clearHistoryButton">CH (Clear History)</button>
 
+
+            <button id="plusButton" class="plusButton">+</button>
+            <button id="minusButton" class="minusButton">-</button>
+            <button id="divideButton" class="divideButton">/</button>
+            <button id="multiplyButton" class="">*</button>
+            <!-- input 2-->
+            <input type="number" placeholder="Second Number" id="secondNumber">
+
+            <!-- Submit Button -->
+            <p id="submitButtons">
+                <button id="submitButton" class="submitButton">= (Submit)</button>
+                <button id="clearButton" class="clearButton">C (Clear)</button>
+                <button id="clearHistoryButton" class="clearHistoryButton">CH (Clear History)</button>
+            </p>
         </div>
-        <h3>Current Operator:   
+        <h3>Current Operator:
             <span id="currentOperator"></span>
         </h3>
         <ul id="mathHistoryList">
