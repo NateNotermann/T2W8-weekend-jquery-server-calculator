@@ -16,17 +16,25 @@ When the submit (`=` button) is clicked, capture this input,
 
 
   <!-- Need to do - 'BUNDLE OBJECT -->
- bundle it up in an object, and send this object to the server via a POST.
+ bundle it up in an object,
+  and send this object to the server via a POST.
 
 
 <!-- have a C-Clear button. WI;; change it to clear inputs instead of history --> 
 There should also be a 'C' button that will clear the user input fields.
 
-Build out the server-side logic to compute the numbers as appropriate. The server should be able to handle Addition, Subtraction, Multiplication, and Division. Once the calculation is complete, send back the OK. You should do a GET request after the POST to get the actual calculation.
+Build out the server-side logic to compute the numbers as appropriate. 
+The server should be able to handle Addition, Subtraction, Multiplication, and Division. 
+Once the calculation is complete, 
+  send back the OK. 
+You should do a GET request after the POST to get the actual calculation.
 
 ### History
 
-Keep a historical record of all math operations and solutions on the server. Display a list of all previous calculations on the page when it loads using a GET request. Update the list when a new calculation is made.
+Keep a historical record of all math operations and solutions on the server. 
+
+Display a list of all previous calculations on the page when it loads using a GET request. 
+Update the list when a new calculation is made.
 
 > NOTE: History should exist even after refreshing the page. It's expected that the history will go away after restarting the server. We'll talk about long term data storage next week.
 
@@ -35,6 +43,15 @@ Keep a historical record of all math operations and solutions on the server. Dis
 ---
 
 > Note: Do not use eval() to complete this assignment.
+
+
+
+
+
+
+
+
+
 
 ## Stretch Goals
 
@@ -61,9 +78,12 @@ Keep a historical record of all math operations and solutions on the server. Dis
 
 TO DO LIST
   create .gitignore - DONE
-  write ReadMe.md - 
+  write ReadMe.md 
   code all calculator logic in clients first - IN PROGRESS
-  
+  save input 1, operator, input 2 in object 
+  save all math objects in an array
+  be able to clear array
+
   Run blank test in new file
 
   code/ connect all client and server code, by ADDING and TESTING as you go
