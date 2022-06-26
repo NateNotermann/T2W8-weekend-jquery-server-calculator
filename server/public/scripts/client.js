@@ -3,8 +3,6 @@ console.log( 'js' );
 
 function onReady(){
 // ---- ACTION 1. listeners ----
-    // $('#submitButton').on('click', submitMath ); // listener works
-            // $('#submitButton').on('click', inputValues ); // may delete 
     $('#submitButton').on('click', clientIfFunction ); // listener works
 
     $('#plusButton').on('click', plusOperator ); // PLUS FUNCTION WORKS
@@ -15,18 +13,11 @@ function onReady(){
     $('#clearButton').on('click', clearInputsButton ); // clear FUNCTION WORKS
 }
 
-// GLOBAL VARIABLES to save math button functions in a string
-// OPERATORS 
-let plus = '+';
-let minus ='-';
-let divide = '/';
-let multiply = '*';
-
 // INPUTS & CURRENT SELECTED OPERATOR
-let input1 = '';   // will be input 1's number
+// let input1 = '';   // will be input 1's number
 let operator = ''; // will be operator
-let input2 = ''; // will be input 2's number
-console.log('on start in put 1:', input1, 'input 2', input2 ); // works 
+// let input2 = ''; // will be input 2's number
+// console.log('on start in put 1:', input1, 'input 2', input2 ); // works 
 
 // EQUATION
 let math = 0;
@@ -34,6 +25,8 @@ let math = 0;
 // EQUATION HOLDER - OBJECT
 let mathObject = { // Starts Empty
 }
+let mathObjectObject =[];
+let mathHistoryArray =[];
 
 // ---- ACTION  2. --- If Logic ---- CLIENT SIDE ONLY
 function clientIfFunction (){  
@@ -63,11 +56,6 @@ function saveMathObject() {
     mathObject.input1 = Number($('#firstNumber').val()); 
     mathObject.operator = operator;
     mathObject.input2 = Number($('#secondNumber').val());
-    // mathObject = {
-    // input1: input1,
-    // operator: operator,
-    // input2: input2,
-    // }
 console.log( mathObject ); //  check mathObject
 serverIfLoop(); // check which OPERATOR and do next thing
 // console.log( input1, operator, input2 ); // checks mathObject
@@ -90,22 +78,11 @@ if ( operator === '+'){
         console.log( 'SERVER if loop - MULTIPLY');
         multiplyMath();
     } 
+    mathObjectObject.push(mathObject)
+    console.log('math object object is:', mathObjectObject);
     appendToDOM();
+
 };  // END of If Function
-
-
-// ---- ACTION 2.B ---- STORES INPUT 1 % 2 VALUES ----
-// function inputValues (){ // Takes INPUT values and stores them in the input VARIABLES, to use in math EQUATION
-//     console.log( 'input function start' ); //test click listener
-//         // input1 = Number($('#firstNumber').val()); // takes input 1 value, converts itt to #
-//         input2 = Number($('#secondNumber').val());// takes input 2 value, converts itt to #
-//         // input1 = $('#firstNumber').val(); // takes input 1 value, converts itt to #
-//         // input2 = $('#secondNumber'.val());// takes input 2 value, converts itt to #
-//     console.log('input 1:',  input1, 'input 2:', input2, );
-// }; // END of InputValues
-
-
-
 
 
 
@@ -114,7 +91,7 @@ if ( operator === '+'){
 // ---- CHANGE OPERATOR FUNCTIONS BELOW ----
 function plusOperator (){ 
     operator =''; // clear operator variable value
-    operator = plus; // change operator variable value to plus variable value
+    operator = '+'; // change operator variable value to plus variable value
     console.log( 'operator is now', operator ); // test operator function
     $('#currentOperator').empty();
     $('#currentOperator').append(`${operator}`);
@@ -122,7 +99,7 @@ function plusOperator (){
 
 function minusOperator (){ // function for MINUS math
     operator ='';
-    operator = minus;
+    operator = '-';
     $('#currentOperator').empty();
     $('#currentOperator').append(`${operator}`);
     console.log( 'operator is now', operator );
@@ -130,7 +107,7 @@ function minusOperator (){ // function for MINUS math
 
 function divideOperator (){ // function for DIVIDE math
     operator ='';
-    operator = divide;
+    operator = '/';
     $('#currentOperator').empty();
     $('#currentOperator').append(` /`);
     console.log( 'operator is now', operator );
@@ -138,7 +115,7 @@ function divideOperator (){ // function for DIVIDE math
 
 function multiplyOperator (){ // function for multiply math
     operator ='';
-    operator = multiply;
+    operator = '*';
     $('#currentOperator').empty();
     $('#currentOperator').append(` *`);
     console.log( 'operator is now', operator );
@@ -168,23 +145,26 @@ function multiplyMath(){
 
 
 
-function clearInputsButton (){  // Clears the INPUT fields -  works
-console.log( 'clear Inputs button');
-$('#firstNumber').val('');
-$('#secondNumber').val('');
-}; // End of ClearButton
-  
 
 
-// ---- ACTION 3. ---- PUSH TO MATHOBJECT    &    APPEND MATHOBJECT TO DOM
+// ---- ACTION 3. ---- PUSH TO MATH-OBJECT    &    APPEND MATH-OBJECT TO DOM
 function appendToDOM (){
     console.log( 'appendToDOM START '); 
-
+    
     console.log( 'mathObject is', 
     mathObject.input1, 
     mathObject.operator, 
     mathObject.input2, '& equals:', math ); ///tests mathObject & math 
-
+    
+    // $('#mathHistoryList').append(
+    //     `<li>
+    //     ${mathObject.input1}
+    //     ${mathObject.operator}
+    //     ${mathObject.input2}
+    //     =
+    //     ${math}
+    //     </li>`
+    //     )
     $('#mathHistoryList').append(
         `<li>
         ${mathObject.input1}
@@ -193,5 +173,26 @@ function appendToDOM (){
         =
         ${math}
         </li>`
-    )
+        )
+        mathHistoryArrayLoop();
 };
+    function mathHistoryArrayLoop (){
+    for ( let i =0; i<mathHistoryArray.length; i++ ) {
+        console.log(mathHistoryArray[i]);
+    }
+};
+    
+    
+    
+function clearInputsButton (){  // Clears the INPUT fields -  works
+    console.log( 'Clear Inputs button');
+    $('#firstNumber').val('');
+    $('#secondNumber').val('');
+    }; // End of ClearButton
+
+
+    function clearHistoryButton (){  // Clears the INPUT fields -  works
+    console.log( 'Clear History Button ');
+    mathHistoryArray = [];
+    }; // End of ClearButton
+      
