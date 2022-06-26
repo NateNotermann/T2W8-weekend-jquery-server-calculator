@@ -23,7 +23,7 @@ let operator = ''; // will be operator
 let math = 0;
 
 // EQUATION HOLDER - OBJECT
-let mathObject = { // Starts Empty
+let currentMathObject = { // Starts Empty
 }
 let mathObjectObject =[];
 let mathHistoryArray =[];
@@ -52,16 +52,18 @@ function clientIfFunction (){
 
 // ---- ACTION  3. --- Save INPUTS to OBJECT ---- CLIENT SIDE ONLY
 function saveMathObject() {
-    mathObject = {}; // clear object first
-    mathObject.input1 = Number($('#firstNumber').val()); 
-    mathObject.operator = operator;
-    mathObject.input2 = Number($('#secondNumber').val());
-console.log( mathObject ); //  check mathObject
-serverIfLoop(); // check which OPERATOR and do next thing
-// console.log( input1, operator, input2 ); // checks mathObject
+    currentMathObject = {}; // clear object first
+    currentMathObject.input1 = Number($('#firstNumber').val()); 
+    currentMathObject.operator = operator;
+    currentMathObject.input2 = Number($('#secondNumber').val());
+console.log( currentMathObject ); //  check currentMathObject
+serverOperatorIfCheck(); // check which OPERATOR and do next thing
+// console.log( input1, operator, input2 ); // checks currentMathObject
 };
 
-function serverIfLoop (){
+
+// ---- ACTION  4. --- MATH OPERATOR IF-ELSE CHECK---- SERVER SIDE ----
+function serverOperatorIfCheck (){
 if ( operator === '+'){
         console.log( 'SERVER if loop - PLUS');
         plusMath();  
@@ -78,7 +80,7 @@ if ( operator === '+'){
         console.log( 'SERVER if loop - MULTIPLY');
         multiplyMath();
     } 
-    mathObjectObject.push(mathObject)
+    mathObjectObject.push(currentMathObject)
     console.log('math object object is:', mathObjectObject);
     appendToDOM();
 
@@ -94,65 +96,65 @@ if ( operator === '+'){
 
 
 
-// ---- ACTION 3. ---- RUN MATH FUNCTIONS BELOW ----
+// ---- ACTION 3. ---- RUN MATH FUNCTIONS BELOW ----  SERVER SIDE ----
 function plusMath(){
-    math = mathObject.input1 + mathObject.input2; // runs actual math 
-    console.log('math is:', mathObject.input1, operator, mathObject.input2, '=', math ); // Checks actual math
+    math = currentMathObject.input1 + currentMathObject.input2; // runs actual math 
+    console.log('math is:', currentMathObject.input1, operator, currentMathObject.input2, '=', math ); // Checks actual math
 };
 function minusMath(){
-    math = mathObject.input1 - mathObject.input2; // runs actual math 
-    console.log('math is:', mathObject.input1, operator, mathObject.input2, '=', math ); // Checks actual math
+    math = currentMathObject.input1 - currentMathObject.input2; // runs actual math 
+    console.log('math is:', currentMathObject.input1, operator, currentMathObject.input2, '=', math ); // Checks actual math
 };
 function divideMath (){
-    math = mathObject.input1 / mathObject.input2; // runs actual math 
-    console.log('math is:', mathObject.input1, operator, mathObject.input2, '=', math ); // Checks actual math
+    math = currentMathObject.input1 / currentMathObject.input2; // runs actual math 
+    console.log('math is:', currentMathObject.input1, operator, currentMathObject.input2, '=', math ); // Checks actual math
 };
 function multiplyMath(){
-    math = mathObject.input1 * mathObject.input2; // runs actual math 
-    console.log('math is:', mathObject.input1, operator, mathObject.input2, '=', math ); // Checks actual math
+    math = currentMathObject.input1 * currentMathObject.input2; // runs actual math 
+    console.log('math is:', currentMathObject.input1, operator, currentMathObject.input2, '=', math ); // Checks actual math
 };
 
 
 
 
 
-// ---- ACTION 3. ---- PUSH TO MATH-OBJECT    &    APPEND MATH-OBJECT TO DOM
+// ---- ACTION 3. ---- PUSH TO MATH-OBJECT & APPEND MATH-OBJECT TO DOM
 function appendToDOM (){
     console.log( 'appendToDOM START '); 
     
-    console.log( 'mathObject is', 
-    mathObject.input1, 
-    mathObject.operator, 
-    mathObject.input2, '& equals:', math ); ///tests mathObject & math 
+    console.log( 'currentMathObject is', 
+    currentMathObject.input1, 
+    currentMathObject.operator, 
+    currentMathObject.input2, '& equals:', math ); ///tests currentMathObject & math 
     
     // $('#mathHistoryList').append(
     //     `<li>
-    //     ${mathObject.input1}
-    //     ${mathObject.operator}
-    //     ${mathObject.input2}
+    //     ${currentMathObject.input1}
+    //     ${currentMathObject.operator}
+    //     ${currentMathObject.input2}
     //     =
     //     ${math}
     //     </li>`
     //     )
     $('#mathHistoryList').append(
         `<li>
-        ${mathObject.input1}
-        ${mathObject.operator}
-        ${mathObject.input2}
+        ${currentMathObject.input1}
+        ${currentMathObject.operator}
+        ${currentMathObject.input2}
         =
         ${math}
         </li>`
         )
-        mathHistoryArrayLoop();
+        // mathHistoryArrayLoop();  // loop through and print array - haven`t figured out yet
 };
-    function mathHistoryArrayLoop (){
-    for ( let i =0; i<mathHistoryArray.length; i++ ) {
-        console.log(mathHistoryArray[i]);
-    }
-};
+//     function mathHistoryArrayLoop (){
+//     for ( let i =0; i<mathHistoryArray.length; i++ ) {
+//         console.log(mathHistoryArray[i]);
+//     }
+// };
     
     
-// ---- ADJACENT ACTIONS - CHANGE OPERATOR FUNCTIONS BELOW ----
+// ---- ADJACENT ACTIONS ---- CHANGE OPERATOR FUNCTIONS BELOW ---- CLIENT SIDE ----
 function plusOperator (){ 
     operator =''; // clear operator variable value
     operator = '+'; // change operator variable value to plus variable value
