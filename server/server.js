@@ -11,9 +11,24 @@ const PORT = 5000;
 
 app.use(express.static('server/public'));
 
-//run the server, on the port we want
 // Start up our server
 app.listen(PORT, () => {
     console.log('listening on port', PORT);
-    console.log( 'SERVER RUNNING ON PORT' );
   });
+
+
+// http://localhost:5000/math1
+app.get('/math1', function(req, res) {
+    console.log('in the GET MATH1 function');
+    res.send(serverMathArrayOfObjects)
+} );
+
+
+
+    //Texting an example array
+  let serverMathArrayOfObjects = [ // ARRAY of OBJECTS
+  { input1: 'example 20',
+    operator: '+', 
+    input2: 'example 5',
+    math: '25', },
+  ];

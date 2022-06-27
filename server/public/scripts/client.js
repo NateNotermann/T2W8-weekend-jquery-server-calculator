@@ -1,8 +1,12 @@
+const { response } = require ("express");
+
 $(document).ready(onReady);
 console.log( 'js' );
 
 function onReady(){
 // ---- ACTION 1. listeners ----
+    getExampleMath(); // get data from server
+
     $('#submitButton').on('click', clientIfFunction ); // listener works
 
     $('#plusButton').on('click', plusOperator ); // PLUS FUNCTION WORKS
@@ -27,6 +31,37 @@ let currentMathObject = { // Starts Empty
 }
 let mathObjectObject =[];
 let mathHistoryArray =[];
+
+
+
+function getExampleMath() {
+    console.log( 'start of getMath');
+    //get example math from the server
+    $.ajax({ //AJAX 
+        url: '/math1',
+        method: 'GET',
+    }).then( function( response ) {
+        console.log( 'response is:', response )
+    })
+    console.log( 'end of getMath' );
+};
+
+
+function render(quoteList) {// render is a taco
+    //empty the DOM first
+    $('#output').empty();
+    // append to the DOM
+    for ( let quote of quoteList ) {
+        $('#output').append(`<li>${quote.text} -- ${quote.author}</li>`); 
+        //backticks - means everything is text EXCEPT the for ${stuff} 
+        // can put things that are not text into the ${ STRING INTERPELLATION}
+    }
+}; 
+
+
+
+
+
 
 // ---- ACTION  2. --- If Logic ---- CLIENT SIDE ONLY
 function clientIfFunction (){  
