@@ -1,5 +1,3 @@
-const { response } = require ("express");
-
 $(document).ready(onReady);
 console.log( 'js' );
 
@@ -42,20 +40,27 @@ function getExampleMath() {
         method: 'GET',
     }).then( function( response ) {
         console.log( 'response is:', response )
+        render(response)
+    }).catch( function (error){
+        console.log( error );
+        console.log( 'ERROR IN GET /math1');
     })
     console.log( 'end of getMath' );
 };
 
 
-function render(quoteList) {// render is a taco
+function render(serverMathArrayOfObjects) {// render is a taco 
     //empty the DOM first
-    $('#output').empty();
+    $('#mathHistoryList').empty();
     // append to the DOM
-    for ( let quote of quoteList ) {
-        $('#output').append(`<li>${quote.text} -- ${quote.author}</li>`); 
-        //backticks - means everything is text EXCEPT the for ${stuff} 
+    for ( let objects of serverMathArrayOfObjects ) {
+        $('#mathHistoryList').append(
+            `<li>${objects.input1} 
+                 ${objects.operator} 
+                 ${objects.input2} </li>`); 
+                }
+        //back ticks - means everything is text EXCEPT the for ${stuff} 
         // can put things that are not text into the ${ STRING INTERPELLATION}
-    }
 }; 
 
 

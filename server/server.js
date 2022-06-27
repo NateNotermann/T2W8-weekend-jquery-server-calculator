@@ -27,8 +27,13 @@ app.get('/math1', function(req, res) {
 
     //Texting an example array
   let serverMathArrayOfObjects = [ // ARRAY of OBJECTS
-  { input1: 'example 20',
+  { input1: 'example math 20',
     operator: '+', 
-    input2: 'example 5',
+    input2: '5',
     math: '25', },
+
+    { input1: 'example math 22',
+    operator: '-', 
+    input2: '6',
+    math: '16', }
   ];
