@@ -40,25 +40,47 @@ function getExampleMath() {
         method: 'GET',
     }).then( function( response ) {
         console.log( 'response is:', response )
-        render(response)
+        render(response);
     }).catch( function (error){
         console.log( error );
         console.log( 'ERROR IN GET /math1');
-    })
+    });
     console.log( 'end of getMath' );
 };
 
+function postMathExample (){ // pulls in input values for POST 
+    let newEquation = {
+        input1: Number($('#firstNumber').val()),
+        operator: operator,
+        input2: Number($('#secondNumber').val()),
+    };
 
-function render(serverMathArrayOfObjects) {// render is a taco 
+    console.log('newEquation is:', newEquation ); // just tests newEquation variable
+
+    $.ajax({
+        url: '/math1',
+        method: 'POST',
+        data: newEquation // data here becomes REQ.BODY on SERVER
+    }).then( function (response){
+        console.log('Test POST response is', response );
+    })
+}
+
+
+
+
+function render(moduleArrayOfMathObjects) {// render is a taco 
     //empty the DOM first
     $('#mathHistoryList').empty();
     // append to the DOM
-    for ( let objects of serverMathArrayOfObjects ) {
+    for ( let objects of moduleArrayOfMathObjects ) {
         $('#mathHistoryList').append(
             `<li>${objects.input1} 
                  ${objects.operator} 
                  ${objects.input2} </li>`); 
-                }
+                 console.log( 'moduleArrayOfMathObjects is', moduleArrayOfMathObjects);
+                 console.log( 'objects in loop is', objects );
+                };
         //back ticks - means everything is text EXCEPT the for ${stuff} 
         // can put things that are not text into the ${ STRING INTERPELLATION}
 }; 
@@ -85,6 +107,7 @@ function clientIfFunction (){
     } 
     else {
         saveMathObject(); // moves to ACTION 3 to save inputs in an object
+        postMathExample();
         console.log( 'Client IF loop Done');
     }
 };
